@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Riviera Designer Sunglasses",
+    "brand": "SunShade",
+    "price": 149.0,
+    "rating": 4.9,
+    "stock": 15,
+    "description": "Experience luxury with these high-gloss tortoiseshell frames and amber lenses. Perfect for any coastal sunset.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB9MpP25JXvPpca3wKTvLd238_K860xvcPXjxVihu41VyC4pgCeKZZmK-OOUT0yC9L060JDtZ8m_bQXCkJ_B4tATHlfZyXY47ZAMpiKB2RTStLWuQn-bxHJdx04XbqW93Z1AKI1UGJdvwzlhMMRvnMsSs4mviWm9pMuFVG_TqMteUq9vLp7UQkOnRp708mr_YTCu3XcsGHMrcJSh5BC08T4fgCF0C2AAwZdtxbEtY4mhLjb366EKLOiam62EYOggxcVITPFHKrVl3CN",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Azure Mediterranean Trunks",
+    "brand": "BeachVibe",
+    "price": 42.5,
+    "rating": 4.7,
+    "stock": 25,
+    "description": "Modern tailored swim trunks featuring a vibrant Mediterranean mosaic pattern. Quick-dry and comfortable.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCFmdrQO4-JI0ry_vKcmcLY-7vHfDRcPegWOTzybAH6ME8iEvi5O_fzoVPgpmqOeeWNr8RHaMPhQc0cE7BM_jDpLLXFfHRqXao8YDfcYnzBHbctCIhdUSXTbSok4x1fn9OJh8oIHgWH3QAuUvA0B_c_NAfWCG2B4ktc8sZ5ZosRvTZcWSOGmXXiKHA31fNFsxzMOgP_KqQtw_HW99nFDk-XVlLgUMuAOnPvPQylXnLLYXTIRlRarRQxJL6A-L3AgJk1miW05l3k_kuG",
+    "category": "Apparel"
+  },
+  {
+    "id": 3,
+    "name": "SunShield Organic SPF 50",
+    "brand": "PureSun",
+    "price": 29.0,
+    "rating": 5.0,
+    "stock": 50,
+    "description": "Minimalist organic sunscreen with high protection. Reef-safe and non-greasy formula.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAq__bMTRaU3XxHyf5rmJ8bMbKHyfh_eiWXj_GCuNpgdT1Jep_XC9_z1hGmIy_iGRGdDEq1cuXmDuNxRVGU2Y1hDCDkQdx4kQaXOY58lCxDZ3myfYWEUEOZIf_K7eOjXSBr3MTIrnVX92M0_7ioi6lC1M9oN1NyNRL4Bs8kVK6EWVxzvMn3m3J3MIdXVE3N03miT4Uq5S1NiIg2bXnTOHNTbfNnLlTJgxv5p16m6NTsZ_McVBesYMD1UZ1OFtF8-Egg0ax-E3aJq6t1",
+    "category": "Skincare"
+  },
+  {
+    "id": 4,
+    "name": "Eco-Friendly Beach Tote",
+    "brand": "BeachVibe",
+    "price": 55.0,
+    "rating": 4.6,
+    "stock": 12,
+    "description": "Spacious woven tote made from sustainable materials. Includes a waterproof inner pocket.",
+    "image": "https://images.unsplash.com/photo-1590739225287-bd26514ca9ba?auto=format&fit=crop&q=80&w=800",
+    "category": "Accessories"
+  },
+  {
+    "id": 5,
+    "name": "Cotton Linen Summer Shirt",
+    "brand": "SolLux",
+    "price": 75.0,
+    "rating": 4.8,
+    "stock": 20,
+    "description": "Breathable cotton-linen blend shirt. Relaxed fit, perfect for beach dinners.",
+    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=800",
+    "category": "Apparel"
+  },
+  {
+    "id": 6,
+    "name": "Mediterranean Straw Hat",
+    "brand": "SolLux",
+    "price": 45.0,
+    "rating": 4.5,
+    "stock": 30,
+    "description": "Classic wide-brimmed straw hat providing excellent sun protection with style.",
+    "image": "https://images.unsplash.com/photo-1533448909164-9ca289b14a6e?auto=format&fit=crop&q=80&w=800",
+    "category": "Accessories"
+  }
+]

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -12,6 +12,14 @@ function LoginContent() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [animationData, setAnimationData] = useState<any>(null);
+
+  useEffect(() => {
+    fetch("https://lottie.host/783685e1-8848-43d9-93e1-51838634e402/n7y3j3O6Wz.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Error loading animation:", err));
+  }, []);
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackURL = searchParams.get("callbackURL") || "/";
@@ -63,10 +71,9 @@ function LoginContent() {
             <div className="flex justify-center mb-4">
               <div className="w-24 h-24">
                 <Lottie
-                  animationData={null}
+                  animationData={animationData}
                   loop={true}
                   autoplay={true}
-                  path="https://lottie.host/783685e1-8848-43d9-93e1-51838634e402/n7y3j3O6Wz.json"
                 />
               </div>
             </div>

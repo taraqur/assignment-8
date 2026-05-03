@@ -36,10 +36,10 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
           {/* Image Section */}
           <div className="flex-1">
             <div className="rounded-[3rem] overflow-hidden shadow-2xl border border-white/50 aspect-square">
-              <img 
-                  src={product.image} 
-                  alt={product.name} 
-                  className="w-full h-full object-cover"
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -52,14 +52,14 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
             <h1 className="font-h1 text-h1 text-on-background mb-sm leading-tight">
               {product.name}
             </h1>
-            
+
             <div className="flex items-center gap-4 mb-md">
               <div className="flex items-center gap-1 text-orange-400">
-                  {[...Array(5)].map((_, i) => (
-                      <span key={i} className="material-symbols-outlined text-xl" style={{ fontVariationSettings: i < Math.floor(product.rating) ? "'FILL' 1" : "" }}>
-                          star
-                      </span>
-                  ))}
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="material-symbols-outlined text-xl" style={{ fontVariationSettings: i < Math.floor(product.rating) ? "'FILL' 1" : "" }}>
+                    star
+                  </span>
+                ))}
               </div>
               <span className="font-bold text-on-background">{product.rating} / 5.0</span>
             </div>
@@ -74,7 +74,7 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
 
             <div className="flex items-center gap-md mb-lg">
               <div className="px-4 py-2 rounded-xl bg-surface-container border border-white/50 text-on-surface-variant">
-                  Stock: <span className="font-bold text-on-background">{product.stock} units</span>
+                Stock: <span className="font-bold text-on-background">{product.stock} units</span>
               </div>
             </div>
 

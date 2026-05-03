@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function RegisterPage() {
+function RegisterContent() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +14,8 @@ export default function RegisterPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackURL = searchParams.get("callbackURL") || "/";
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,21 +27,21 @@ export default function RegisterPage() {
       password,
       name,
       image: photoUrl || undefined,
-      callbackURL: "/login",
+      callbackURL: `/login?callbackURL=${encodeURIComponent(callbackURL)}`,
     });
 
     if (authError) {
       setError(authError.message || "Registration failed. Please try again.");
       setLoading(false);
     } else {
-      router.push("/login");
+      router.push(`/login?callbackURL=${encodeURIComponent(callbackURL)}`);
     }
   };
 
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/",
+        callbackURL: callbackURL,
     });
   };
 
@@ -168,7 +170,7 @@ export default function RegisterPage() {
 
           <p className="text-center mt-10 text-slate-500 text-sm font-medium">
             Already have an account?{" "}
-            <Link href="/login" className="text-orange-500 font-bold hover:underline">
+            <Link href={`/login?callbackURL=${encodeURIComponent(callbackURL)}`} className="text-orange-500 font-bold hover:underline">
               Login
             </Link>
           </p>
@@ -184,3 +186,16 @@ export default function RegisterPage() {
     </div>
   );
 }
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={
+        <div className="min-h-screen bg-orange-100 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+        </div>
+    }>
+      <RegisterContent />
+    </Suspense>
+  );
+}
+

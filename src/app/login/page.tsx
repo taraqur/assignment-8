@@ -1,17 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Lottie from "lottie-react";
 
-export default function LoginPage() {
+function LoginContent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackURL = searchParams.get("callbackURL") || "/";
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,21 +24,21 @@ export default function LoginPage() {
     const { error: authError } = await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/",
+      callbackURL: callbackURL,
     });
 
     if (authError) {
       setError(authError.message || "Login failed. Please check your credentials.");
       setLoading(false);
     } else {
-      router.push("/");
+      router.push(callbackURL);
     }
   };
 
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/",
+        callbackURL: callbackURL,
     });
   };
 
@@ -57,6 +60,16 @@ export default function LoginPage() {
         >
           {/* Logo & Header */}
           <div className="text-center mb-10">
+            <div className="flex justify-center mb-4">
+              <div className="w-24 h-24">
+                <Lottie 
+                  animationData={null} // We will use path instead
+                  loop={true}
+                  autoplay={true}
+                  path="https://lottie.host/783685e1-8848-43d9-93e1-51838634e402/n7y3j3O6Wz.json"
+                />
+              </div>
+            </div>
             <h2 className="text-4xl font-black text-orange-500 tracking-tighter mb-2">SunCart</h2>
             <h1 className="text-2xl font-bold text-slate-800 mb-1">Welcome Back</h1>
             <p className="text-slate-500 text-sm">Step back into the warmth of summer.</p>
@@ -132,7 +145,7 @@ export default function LoginPage() {
 
           <p className="text-center mt-10 text-slate-500 text-sm font-medium">
             Don't have an account?{" "}
-            <Link href="/register" className="text-orange-500 font-bold hover:underline">
+            <Link href={`/register?callbackURL=${encodeURIComponent(callbackURL)}`} className="text-orange-500 font-bold hover:underline">
               Register
             </Link>
           </p>
@@ -154,3 +167,16 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+        <div className="min-h-screen bg-[#F7941D] flex items-center justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+        </div>
+    }>
+      <LoginContent />
+    </Suspense>
+  );
+}
+

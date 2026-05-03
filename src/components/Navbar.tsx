@@ -33,14 +33,14 @@ const Navbar = () => {
         {/* Links */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               href={link.href}
               className={`relative text-[15px] font-bold transition-all duration-300 ${pathname === link.href ? 'text-[#F97316]' : 'text-slate-600 hover:text-[#F97316]'}`}
             >
               {link.name}
               {pathname === link.href && (
-                <motion.div 
+                <motion.div
                   layoutId="nav-active"
                   className="absolute -bottom-2 left-0 w-full h-[2px] bg-[#F97316] rounded-full"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
@@ -50,7 +50,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Actions */}
+
         <div className="flex items-center gap-4">
           {session ? (
             <div className="flex items-center gap-4">
@@ -66,7 +66,7 @@ const Navbar = () => {
                 </div>
                 <span className="text-xs font-bold text-slate-700">{session.user.name.split(' ')[0]}</span>
               </Link>
-              <button 
+              <button
                 onClick={handleLogout}
                 className="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:text-orange-500 hover:bg-white/50 transition-all border border-white/20"
               >

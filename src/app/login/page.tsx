@@ -20,7 +20,7 @@ function LoginContent() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    
+
     const { error: authError } = await authClient.signIn.email({
       email,
       password,
@@ -37,8 +37,8 @@ function LoginContent() {
 
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
-        provider: "google",
-        callbackURL: callbackURL,
+      provider: "google",
+      callbackURL: callbackURL,
     });
   };
 
@@ -53,7 +53,7 @@ function LoginContent() {
       </div>
 
       <div className="flex-1 flex items-center justify-center relative z-10 px-8 py-20">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className="max-w-[480px] w-full bg-white/80 backdrop-blur-3xl rounded-[2.5rem] p-12 shadow-[0_40px_100px_rgba(0,0,0,0.1)] border border-white/40"
@@ -62,8 +62,8 @@ function LoginContent() {
           <div className="text-center mb-10">
             <div className="flex justify-center mb-4">
               <div className="w-24 h-24">
-                <Lottie 
-                  animationData={null} // We will use path instead
+                <Lottie
+                  animationData={null}
                   loop={true}
                   autoplay={true}
                   path="https://lottie.host/783685e1-8848-43d9-93e1-51838634e402/n7y3j3O6Wz.json"
@@ -171,9 +171,9 @@ function LoginContent() {
 export default function LoginPage() {
   return (
     <Suspense fallback={
-        <div className="min-h-screen bg-[#F7941D] flex items-center justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
-        </div>
+      <div className="min-h-screen bg-[#F7941D] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+      </div>
     }>
       <LoginContent />
     </Suspense>

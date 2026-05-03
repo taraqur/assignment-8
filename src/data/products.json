@@ -40,7 +40,7 @@
     "rating": 4.6,
     "stock": 12,
     "description": "Spacious woven tote made from sustainable materials. Includes a waterproof inner pocket.",
-    "image": "https://images.unsplash.com/photo-1590739225287-bd26514ca9ba?auto=format&fit=crop&q=80&w=800",
+    "image": "/images/beach-tote.png",
     "category": "Accessories"
   },
   {
@@ -62,7 +62,7 @@
     "rating": 4.5,
     "stock": 30,
     "description": "Classic wide-brimmed straw hat providing excellent sun protection with style.",
-    "image": "https://images.unsplash.com/photo-1533448909164-9ca289b14a6e?auto=format&fit=crop&q=80&w=800",
+    "image": "/images/straw-hat.png",
     "category": "Accessories"
   }
 ]

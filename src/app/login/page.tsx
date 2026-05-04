@@ -15,11 +15,15 @@ function LoginContent() {
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    fetch("https://lottie.host/783685e1-8848-43d9-93e1-51838634e402/n7y3j3O6Wz.json")
-      .then((res) => res.json())
+    fetch("https://assets9.lottiefiles.com/packages/lf20_yr6zz3wv.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load animation");
+        return res.json();
+      })
       .then((data) => setAnimationData(data))
       .catch((err) => console.error("Error loading animation:", err));
   }, []);
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackURL = searchParams.get("callbackURL") || "/";
@@ -186,4 +190,3 @@ export default function LoginPage() {
     </Suspense>
   );
 }
-

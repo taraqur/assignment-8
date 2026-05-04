@@ -1,6 +1,10 @@
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import Database from "better-sqlite3";
-import * as schema from "@/db/schema";
+import { MongoClient } from "mongodb";
 
-const sqlite = new Database("sqlite.db");
-export const db = drizzle(sqlite, { schema });
+if (!process.env.MONGODB_URI) {
+  throw new Error("MONGODB_URI is not defined");
+}
+
+const client = new MongoClient(process.env.MONGODB_URI);
+const db = client.db();
+
+export { client, db };

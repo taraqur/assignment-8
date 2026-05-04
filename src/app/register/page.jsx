@@ -17,7 +17,7 @@ function RegisterContent() {
   const searchParams = useSearchParams();
   const callbackURL = searchParams.get("callbackURL") || "/";
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -198,4 +198,3 @@ export default function RegisterPage() {
     </Suspense>
   );
 }
-

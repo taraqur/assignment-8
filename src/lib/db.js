@@ -6,7 +6,7 @@ if (!uri && process.env.NODE_ENV === "production" && typeof window === "undefine
   console.warn("MONGODB_URI is not defined in production environment. Database operations will fail.");
 }
 
-const client = uri ? new MongoClient(uri) : null as any;
-const db = client ? client.db() : null as any;
+const client = uri ? new MongoClient(uri) : null;
+const db = client ? client.db() : null;
 
 export { client, db };

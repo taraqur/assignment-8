@@ -12,7 +12,7 @@ function LoginContent() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [animationData, setAnimationData] = useState<any>(null);
+  const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
     fetch("https://assets9.lottiefiles.com/packages/lf20_yr6zz3wv.json")
@@ -28,7 +28,7 @@ function LoginContent() {
   const searchParams = useSearchParams();
   const callbackURL = searchParams.get("callbackURL") || "/";
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");

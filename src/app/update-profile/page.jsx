@@ -14,8 +14,8 @@ export default function UpdateProfilePage() {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const imageUrlRef = useRef<HTMLInputElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const imageUrlRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     if (session) {
@@ -35,7 +35,7 @@ export default function UpdateProfilePage() {
     return null;
   }
 
-  const handleUpdate = async (e: React.FormEvent) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -53,12 +53,12 @@ export default function UpdateProfilePage() {
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result as string);
+        setImage(reader.result);
       };
       reader.readAsDataURL(file);
     }

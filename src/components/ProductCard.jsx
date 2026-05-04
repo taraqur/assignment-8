@@ -4,18 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-interface ProductCardProps {
-  id: number;
-  image: string;
-  badge: string;
-  badgeColor: string;
-  title: string;
-  rating: string;
-  price: string;
-  oldPrice?: string;
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({
+const ProductCard = ({
   id,
   image,
   badge,

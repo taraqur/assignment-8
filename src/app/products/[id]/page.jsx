@@ -7,7 +7,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export default async function ProductDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function ProductDetailsPage({ params }) {
   const { id } = await params;
   const session = await auth.api.getSession({
     headers: await headers()
